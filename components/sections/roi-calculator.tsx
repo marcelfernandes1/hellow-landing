@@ -59,7 +59,7 @@ export function ROICalculator() {
   );
 
   return (
-    <section className="relative overflow-hidden bg-bg-soft py-24 lg:py-32">
+    <section id="roi" className="relative overflow-hidden bg-bg-soft py-24 lg:py-32">
       <div className="pointer-events-none absolute -top-24 right-0 h-[500px] w-[500px] rounded-full bg-[radial-gradient(closest-side,rgba(255,107,91,0.18),transparent_70%)] blur-3xl" />
 
       <div className="container">

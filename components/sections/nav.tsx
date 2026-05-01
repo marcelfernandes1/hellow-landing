@@ -9,9 +9,9 @@ import { PHONE } from "@/lib/contact";
 import { cn } from "@/lib/utils";
 
 const LINKS = [
-  { href: "#features", label: "Features" },
-  { href: "#pricing", label: "Pricing" },
-  { href: "#faq", label: "FAQ" },
+  { href: "/#features", label: "Features" },
+  { href: "/#pricing", label: "Pricing" },
+  { href: "/#faq", label: "FAQ" },
 ];
 
 export function Nav() {
@@ -41,7 +41,7 @@ export function Nav() {
               : "border-transparent bg-transparent",
           )}
         >
-          <Link href="#top" aria-label="Hellow home" className="flex items-center">
+          <Link href="/" aria-label="Hellow home" className="flex items-center">
             <Logo />
           </Link>
 

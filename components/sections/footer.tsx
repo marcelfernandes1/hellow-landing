@@ -9,37 +9,37 @@ const COLUMNS = [
   {
     title: "Product",
     links: [
-      { label: "Features", href: "#features" },
-      { label: "Pricing", href: "#pricing" },
-      { label: "ROI calculator", href: "#roi" },
-      { label: "Integrations", href: "#integrations" },
+      { label: "Features", href: "/#features" },
+      { label: "Pricing", href: "/#pricing" },
+      { label: "ROI calculator", href: "/#roi" },
+      { label: "Integrations", href: "/integrations" },
     ],
   },
   {
     title: "Company",
     links: [
-      { label: "About", href: "#about" },
-      { label: "Customers", href: "#customers" },
-      { label: "Careers", href: "#careers" },
-      { label: "Contact", href: "#contact" },
+      { label: "About", href: "/about" },
+      { label: "Customers", href: "/customers" },
+      { label: "Careers", href: "/careers" },
+      { label: "Contact", href: "/contact" },
     ],
   },
   {
     title: "Resources",
     links: [
-      { label: "Help center", href: "#help" },
-      { label: "Industry guides", href: "#guides" },
-      { label: "Voice AI report", href: "#report" },
-      { label: "Status", href: "#status" },
+      { label: "Help center", href: "/help" },
+      { label: "Industry guides", href: "/guides" },
+      { label: "Voice AI report", href: "/report" },
+      { label: "Status", href: "/status" },
     ],
   },
   {
     title: "Legal",
     links: [
-      { label: "Privacy", href: "#privacy" },
-      { label: "Terms", href: "#terms" },
-      { label: "Security", href: "#security" },
-      { label: "DPA", href: "#dpa" },
+      { label: "Privacy", href: "/privacy" },
+      { label: "Terms", href: "/terms" },
+      { label: "Security", href: "/security" },
+      { label: "DPA", href: "/dpa" },
     ],
   },
 ];
