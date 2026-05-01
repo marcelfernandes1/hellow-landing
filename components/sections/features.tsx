@@ -3,43 +3,75 @@
 import { motion } from "framer-motion";
 import {
   CalendarClock,
-  Clock,
+  Facebook,
   FileText,
+  Inbox,
+  Instagram,
   Languages,
+  MessageCircle,
   MessageSquareText,
+  Phone,
   UserPlus,
 } from "lucide-react";
 
-const FEATURES = [
+type Feature = {
+  icon: React.ComponentType<{ className?: string; strokeWidth?: number }>;
+  title: string;
+  body: string;
+  channel?: boolean;
+};
+
+const FEATURES: Feature[] = [
+  // Row 1 — channels
   {
-    icon: Clock,
-    title: "24/7 call answering",
-    body: "Never miss a ring — mornings, evenings, weekends, holidays. Hellow is awake when you can't be.",
+    icon: Phone,
+    title: "24/7 phone answering",
+    body: "Mornings, evenings, weekends, holidays. Hellow picks up when you can't.",
+    channel: true,
   },
+  {
+    icon: MessageCircle,
+    title: "Website chat widget",
+    body: "Drop one snippet on your site. Hellow answers questions and books visitors instantly.",
+    channel: true,
+  },
+  {
+    icon: Instagram,
+    title: "Instagram + Facebook DMs",
+    body: "Reply to every DM the moment it arrives — no more buried inboxes or lost leads.",
+    channel: true,
+  },
+  // Row 2 — automation
   {
     icon: CalendarClock,
     title: "Smart appointment booking",
-    body: "Two-way sync with Google Calendar and Outlook. Hellow checks availability and books in real time.",
+    body: "Two-way Google Calendar and Outlook sync. Hellow checks availability and books in real time.",
   },
   {
     icon: UserPlus,
     title: "Lead capture & CRM sync",
-    body: "Every caller saved with name, number, intent, and full transcript. Pushes to your CRM automatically.",
-  },
-  {
-    icon: MessageSquareText,
-    title: "SMS follow-up",
-    body: "Confirmations, reminders, and reschedule links — sent automatically the moment a call ends.",
-  },
-  {
-    icon: Languages,
-    title: "Multi-language",
-    body: "Answers in English, Spanish, and Portuguese. Switches seamlessly mid-call when the caller does.",
+    body: "Every contact saved with name, number, intent, and full transcript. Pushes to your CRM automatically.",
   },
   {
     icon: FileText,
     title: "Real-time transcripts",
     body: "Every conversation transcribed and searchable. Quality assurance, training, and proof — built in.",
+  },
+  // Row 3 — reach & polish
+  {
+    icon: Inbox,
+    title: "Unified omnichannel inbox",
+    body: "Phone, web, IG, and FB conversations land in one place — no app-hopping, no missed threads.",
+  },
+  {
+    icon: MessageSquareText,
+    title: "SMS follow-up",
+    body: "Confirmations, reminders, reschedule links — sent automatically the moment a conversation ends.",
+  },
+  {
+    icon: Languages,
+    title: "Multi-language",
+    body: "Answers in English, Spanish, and Portuguese. Switches seamlessly mid-conversation when the customer does.",
   },
 ];
 
@@ -51,13 +83,15 @@ export function Features() {
           <div className="lg:col-span-7">
             <p className="text-eyebrow font-semibold uppercase text-coral-600">Capabilities</p>
             <h2 className="mt-4 font-display text-display-lg font-medium text-balance text-ink">
-              Everything a great receptionist does.{" "}
-              <span className="font-display-italic text-coral-600">Without the payroll.</span>
+              Everywhere customers reach you.{" "}
+              <span className="font-display-italic text-coral-600">
+                Every conversation, captured.
+              </span>
             </h2>
           </div>
           <p className="max-w-md text-base leading-relaxed text-ink-muted lg:col-span-5 text-pretty">
-            Built for the realities of running a local business — every feature designed to
-            replace a missed call with a booked customer.
+            Phone, website, Instagram, Facebook — one AI brain, one unified inbox, every
+            booking landed. Built for the way local businesses actually win customers.
           </p>
         </div>
 
@@ -71,6 +105,11 @@ export function Features() {
               transition={{ duration: 0.6, delay: (i % 3) * 0.06 }}
               className="group relative flex flex-col gap-4 bg-bg p-8 transition-colors duration-300 hover:bg-coral-50/50 sm:p-9"
             >
+              {f.channel && (
+                <span className="absolute right-6 top-6 inline-flex items-center gap-1 rounded-full bg-coral-100 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-coral-700 ring-1 ring-coral-200">
+                  Channel
+                </span>
+              )}
               <div className="grid h-12 w-12 place-items-center rounded-2xl bg-bg-soft text-ink ring-1 ring-line transition-all duration-300 group-hover:bg-coral-500 group-hover:text-white group-hover:ring-coral-500">
                 <f.icon className="h-5 w-5" strokeWidth={1.6} />
               </div>
@@ -85,6 +124,20 @@ export function Features() {
             </motion.li>
           ))}
         </ul>
+
+        <p className="mt-8 inline-flex items-center gap-2 rounded-full border border-line bg-bg px-4 py-2 text-sm text-ink-muted">
+          <Facebook className="h-4 w-4 text-coral-600" />
+          <Instagram className="h-4 w-4 text-coral-600" />
+          <MessageCircle className="h-4 w-4 text-coral-600" />
+          <Phone className="h-4 w-4 text-coral-600" />
+          <span className="ml-1">
+            All four channels included on the{" "}
+            <a href="#pricing" className="font-medium text-ink underline-offset-4 hover:underline">
+              Omnichannel plan
+            </a>
+            .
+          </span>
+        </p>
       </div>
     </section>
   );
