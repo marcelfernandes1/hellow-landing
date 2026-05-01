@@ -1,4 +1,3 @@
-import { AlertTriangle } from "lucide-react";
 import { PageShell } from "@/components/page-shell";
 import { PageHero } from "@/components/page-hero";
 import { CTAStrip } from "@/components/cta-strip";
@@ -16,14 +15,12 @@ export function LegalPage({
   subtitle,
   lastUpdated,
   sections,
-  showLegalReviewNotice = true,
 }: {
   eyebrow: string;
   title: React.ReactNode;
   subtitle?: React.ReactNode;
   lastUpdated: string;
   sections: LegalSection[];
-  showLegalReviewNotice?: boolean;
 }) {
   return (
     <PageShell>
@@ -63,17 +60,6 @@ export function LegalPage({
 
             {/* Body */}
             <div className="lg:col-span-8">
-              {showLegalReviewNotice && (
-                <div className="mb-10 flex items-start gap-3 rounded-2xl border border-amber-200 bg-amber-50 p-5 text-amber-900">
-                  <AlertTriangle className="mt-0.5 h-5 w-5 shrink-0" />
-                  <p className="text-sm leading-relaxed">
-                    <strong>Draft for review.</strong> This document is a working
-                    template provided for transparency. It must be reviewed and
-                    finalized by qualified legal counsel before relying on it.
-                  </p>
-                </div>
-              )}
-
               <Prose>
                 {sections.map((s) => (
                   <section key={s.id} id={s.id}>

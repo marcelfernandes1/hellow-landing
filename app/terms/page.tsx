@@ -12,11 +12,21 @@ const SECTIONS: LegalSection[] = [
     id: "agreement",
     title: "Agreement",
     body: (
-      <p>
-        By accessing or using Hellow, you agree to these Terms of Service. If
-        you're entering into this agreement on behalf of a company, you
-        represent that you have the authority to bind that company.
-      </p>
+      <>
+        <p>
+          These Terms of Service form an agreement between you and{" "}
+          <strong>CEL EDUCATION LLC</strong>, a Delaware limited liability
+          company with its registered office at{" "}
+          <strong>8 The Green, Suite A, Dover, DE 19901</strong> ("CEL
+          Education", "Hellow", "we", "us"), governing your access to and use
+          of the Hellow service.
+        </p>
+        <p>
+          By accessing or using Hellow, you agree to these Terms. If you're
+          entering into this agreement on behalf of a company, you represent
+          that you have the authority to bind that company.
+        </p>
+      </>
     ),
   },
   {
@@ -140,9 +150,11 @@ const SECTIONS: LegalSection[] = [
     title: "General",
     body: (
       <p>
-        These terms are governed by the laws of the State of Delaware, USA.
-        Disputes will be resolved in the state and federal courts located in
-        Wilmington, Delaware. If any provision is held unenforceable, the rest
+        These Terms are governed by the laws of the State of Delaware, USA,
+        without regard to its conflict-of-laws principles. Disputes will be
+        resolved exclusively in the state and federal courts located in the
+        State of Delaware, and the parties consent to personal jurisdiction
+        and venue therein. If any provision is held unenforceable, the rest
         will remain in effect.
       </p>
     ),

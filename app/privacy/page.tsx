@@ -14,9 +14,12 @@ const SECTIONS: LegalSection[] = [
     body: (
       <>
         <p>
-          Hellow, Inc. ("Hellow", "we", "us") provides AI-powered receptionist
-          services for local businesses. This Privacy Policy explains what
-          information we collect, how we use it, and the choices available to you.
+          Hellow is a service operated by <strong>CEL EDUCATION LLC</strong>, a
+          Delaware limited liability company with its registered office at{" "}
+          <strong>8 The Green, Suite A, Dover, DE 19901</strong> ("CEL Education",
+          "Hellow", "we", "us"). We provide AI-powered receptionist services for
+          local businesses. This Privacy Policy explains what information we
+          collect, how we use it, and the choices available to you.
         </p>
         <p>
           This policy covers our website, marketing tools, customer dashboard, and

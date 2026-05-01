@@ -19,8 +19,6 @@ const COLUMNS = [
     title: "Company",
     links: [
       { label: "About", href: "/about" },
-      { label: "Customers", href: "/customers" },
-      { label: "Careers", href: "/careers" },
       { label: "Contact", href: "/contact" },
     ],
   },
@@ -135,7 +133,8 @@ export function Footer() {
 
         <div className="mt-16 flex flex-col items-start justify-between gap-6 border-t border-white/10 py-8 sm:flex-row sm:items-center">
           <p className="text-sm text-white/55">
-            © {new Date().getFullYear()} Hellow. Made with care for local businesses.
+            © {new Date().getFullYear()} CEL EDUCATION LLC. Hellow is a service of CEL
+            EDUCATION LLC. Made with care for local businesses.
           </p>
           <div className="flex items-center gap-2">
             {SOCIALS.map((s) => (

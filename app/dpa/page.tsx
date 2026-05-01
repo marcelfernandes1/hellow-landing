@@ -14,14 +14,19 @@ const SECTIONS: LegalSection[] = [
     body: (
       <>
         <p>
-          This Data Processing Agreement ("DPA") governs Hellow's processing of
-          Personal Data on behalf of the Customer in connection with the
-          services described in the underlying Subscription Agreement ("Order").
+          This Data Processing Agreement ("DPA") is entered into between the
+          Customer and <strong>CEL EDUCATION LLC</strong>, a Delaware limited
+          liability company with its registered office at{" "}
+          <strong>8 The Green, Suite A, Dover, DE 19901</strong>, which
+          operates the Hellow service ("CEL Education", "Hellow", "we", "us").
+          It governs our processing of Personal Data on behalf of the Customer
+          in connection with the services described in the underlying
+          Subscription Agreement ("Order").
         </p>
         <p>
           For the purposes of applicable data-protection laws (including the
-          GDPR and the CCPA), Customer is the "Controller" and Hellow is the
-          "Processor".
+          GDPR and the CCPA), Customer is the "Controller" and CEL Education is
+          the "Processor".
         </p>
       </>
     ),

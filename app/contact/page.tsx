@@ -105,13 +105,12 @@ export default function ContactPage() {
                       <p className="text-eyebrow font-semibold uppercase text-ink-muted">
                         Mailing
                       </p>
-                      {/* TODO: replace with real mailing address */}
                       <p className="mt-2 text-base text-ink-soft">
-                        Hellow, Inc.
+                        CEL EDUCATION LLC <span className="text-ink-muted">(Hellow)</span>
                         <br />
-                        [Street Address]
+                        8 The Green, Suite A
                         <br />
-                        [City, ST 00000]
+                        Dover, DE 19901
                       </p>
                     </div>
                   </div>
