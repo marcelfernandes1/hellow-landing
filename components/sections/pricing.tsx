@@ -133,7 +133,8 @@ export function Pricing() {
   const t = COPY[locale];
   const [annual, setAnnual] = useState(false);
   const factor = annual ? 0.8 : 1;
-  const currencyPrefix = locale === "pt" ? "US$ " : "$";
+  const currencyPrefix = locale === "pt" ? "R$ " : "$";
+  const numberLocale = locale === "pt" ? "pt-BR" : "en-US";
 
   return (
     <section id="pricing" className="relative bg-bg py-24 lg:py-32">
@@ -241,7 +242,7 @@ export function Pricing() {
                       )}
                     >
                       {currencyPrefix}
-                      {price}
+                      {price.toLocaleString(numberLocale)}
                     </span>
                     <span
                       className={cn(
@@ -280,7 +281,7 @@ export function Pricing() {
                     <span>
                       <span className="font-display text-base font-semibold tabular-nums">
                         {currencyPrefix}
-                        {tier.setup.toLocaleString("en-US")}
+                        {tier.setup.toLocaleString(numberLocale)}
                       </span>{" "}
                       {t.setupOnce}
                       <span

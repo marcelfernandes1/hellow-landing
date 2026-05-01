@@ -8,7 +8,6 @@ import { Button } from "@/components/ui/button";
 import { PHONE } from "@/lib/contact";
 import { useLocale } from "@/lib/i18n/context";
 import type { Locale } from "@/lib/i18n/types";
-import { formatNumber } from "@/lib/utils";
 
 const CLOSE_RATE = 0.3;
 const RECOVERY_RATE = 0.75;
@@ -69,7 +68,7 @@ const COPY = {
     roiLineB: "de retorno sobre a assinatura.",
     cta: "Ligue e teste ao vivo",
     fine: "Estimativas com base em benchmarks do setor: 30% de conversão de chamadas em clientes, ~75% de taxa de recuperação por IA. Resultados reais variam.",
-    currencyPrefix: "US$ ",
+    currencyPrefix: "R$ ",
   },
 } as const satisfies Record<Locale, unknown>;
 
@@ -85,13 +84,20 @@ function useSpringNumber(target: number, duration = 0.9) {
   return mv;
 }
 
-function fmtMoney(value: number, prefix: string) {
-  return `${prefix}${formatNumber(value)}`;
+function fmtMoney(value: number, prefix: string, numberLocale: string) {
+  return `${prefix}${new Intl.NumberFormat(numberLocale, {
+    maximumFractionDigits: 0,
+  }).format(Math.round(value))}`;
+}
+
+function fmtNumber(value: number, numberLocale: string) {
+  return new Intl.NumberFormat(numberLocale).format(Math.round(value));
 }
 
 export function ROICalculator() {
   const locale = useLocale();
   const t = COPY[locale];
+  const numberLocale = locale === "pt" ? "pt-BR" : "en-US";
 
   const [avgValue, setAvgValue] = useState(500);
   const [missedPerWeek, setMissedPerWeek] = useState(10);
@@ -113,13 +119,13 @@ export function ROICalculator() {
   const roiMV = useSpringNumber(calc.roi);
 
   const monthlyLossDisplay = useTransform(monthlyLossMV, (v) =>
-    fmtMoney(v, t.currencyPrefix),
+    fmtMoney(v, t.currencyPrefix, numberLocale),
   );
   const annualLossDisplay = useTransform(annualLossMV, (v) =>
-    fmtMoney(v, t.currencyPrefix),
+    fmtMoney(v, t.currencyPrefix, numberLocale),
   );
   const recoveredDisplay = useTransform(recoveredMV, (v) =>
-    fmtMoney(v, t.currencyPrefix),
+    fmtMoney(v, t.currencyPrefix, numberLocale),
   );
   const roiDisplay = useTransform(roiMV, (v) =>
     v >= 100 ? "100+×" : `${Math.round(v)}×`,
@@ -165,7 +171,7 @@ export function ROICalculator() {
                     transition={{ duration: 0.25 }}
                     className="font-display text-3xl font-semibold tabular-nums text-coral-600"
                   >
-                    {fmtMoney(avgValue, t.currencyPrefix)}
+                    {fmtMoney(avgValue, t.currencyPrefix, numberLocale)}
                   </motion.span>
                 </div>
                 <p className="mt-1 text-sm text-ink-muted">{t.s1.help}</p>
@@ -180,8 +186,8 @@ export function ROICalculator() {
                   aria-label={t.s1.aria}
                 />
                 <div className="mt-2 flex justify-between text-xs text-ink-subtle">
-                  <span>{t.currencyPrefix}100</span>
-                  <span>{t.currencyPrefix}3,000</span>
+                  <span>{fmtMoney(100, t.currencyPrefix, numberLocale)}</span>
+                  <span>{fmtMoney(3000, t.currencyPrefix, numberLocale)}</span>
                 </div>
               </div>
 
@@ -257,7 +263,7 @@ export function ROICalculator() {
                     {t.callsMissed}
                   </p>
                   <p className="mt-1 font-display text-xl font-semibold text-bg">
-                    {formatNumber(calc.missedPerYear)}
+                    {fmtNumber(calc.missedPerYear, numberLocale)}
                   </p>
                 </div>
                 <div className="rounded-2xl bg-white/[0.06] p-4 ring-1 ring-white/10">
@@ -265,7 +271,7 @@ export function ROICalculator() {
                     {t.lostPerCall}
                   </p>
                   <p className="mt-1 font-display text-xl font-semibold text-bg">
-                    {fmtMoney(calc.lostPerCall, t.currencyPrefix)}
+                    {fmtMoney(calc.lostPerCall, t.currencyPrefix, numberLocale)}
                   </p>
                 </div>
               </div>
