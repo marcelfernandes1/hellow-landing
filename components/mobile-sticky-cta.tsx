@@ -3,8 +3,17 @@
 import { useEffect, useState } from "react";
 import { Phone } from "lucide-react";
 import { PHONE } from "@/lib/contact";
+import { useLocale } from "@/lib/i18n/context";
+import type { Locale } from "@/lib/i18n/types";
+
+const COPY = {
+  en: { live: "Try Hellow live", cta: "Call to test" },
+  pt: { live: "Teste a Hellow ao vivo", cta: "Ligue agora" },
+} as const satisfies Record<Locale, unknown>;
 
 export function MobileStickyCTA() {
+  const locale = useLocale();
+  const t = COPY[locale];
   const [show, setShow] = useState(false);
 
   useEffect(() => {
@@ -26,10 +35,10 @@ export function MobileStickyCTA() {
         href={PHONE.tel}
         className="flex items-center justify-between gap-2 rounded-full bg-ink px-5 py-3.5 shadow-lift ring-1 ring-ink/20"
       >
-        <span className="text-sm text-white/70">Try Hellow live</span>
+        <span className="text-sm text-white/70">{t.live}</span>
         <span className="inline-flex items-center gap-1.5 rounded-full bg-coral-500 px-4 py-2 text-sm font-medium text-white">
           <Phone className="h-3.5 w-3.5" />
-          Call to test
+          {t.cta}
         </span>
       </a>
     </div>

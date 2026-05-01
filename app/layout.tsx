@@ -34,6 +34,10 @@ export const metadata: Metadata = {
     "voice AI",
   ],
   authors: [{ name: "Hellow" }],
+  alternates: {
+    canonical: "/",
+    languages: { en: "/", "pt-BR": "/br" },
+  },
   openGraph: {
     type: "website",
     title: "Hellow — Never Miss Another Customer Call. Ever.",
@@ -41,6 +45,8 @@ export const metadata: Metadata = {
       "The AI receptionist that answers every call, books appointments, and captures leads 24/7.",
     url: "https://hellow.ai",
     siteName: "Hellow",
+    locale: "en_US",
+    alternateLocale: ["pt_BR"],
     images: [{ url: "/og.png", width: 1200, height: 630, alt: "Hellow" }],
   },
   twitter: {

@@ -4,10 +4,37 @@ import { motion } from "framer-motion";
 import { Phone, ShieldCheck } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { PHONE } from "@/lib/contact";
+import { useLocale } from "@/lib/i18n/context";
+import type { Locale } from "@/lib/i18n/types";
+
+const COPY = {
+  en: {
+    eyebrow: "Test it for yourself",
+    headlineA: "Don't take our word for it.",
+    headlineEm: "Call Hellow.",
+    sub: "Pick up your phone right now and dial the number. Hellow will answer. Try to book an appointment, ask anything. This is the real product, live.",
+    cta: "Call to test it live",
+    fine: "Live, unscripted, no signup. Hang up anytime.",
+  },
+  pt: {
+    eyebrow: "Teste com seus próprios ouvidos",
+    headlineA: "Não acredite em nós.",
+    headlineEm: "Ligue para a Hellow.",
+    sub: "Pegue o telefone agora mesmo e disque o número. A Hellow vai atender. Tente marcar um horário, pergunte qualquer coisa. É o produto real, ao vivo.",
+    cta: "Ligue e teste ao vivo",
+    fine: "Ao vivo, sem roteiro, sem cadastro. Desligue quando quiser.",
+  },
+} as const satisfies Record<Locale, unknown>;
 
 export function FinalCTA() {
+  const locale = useLocale();
+  const t = COPY[locale];
+
   return (
-    <section id="demo" className="relative overflow-hidden bg-coral-500 py-24 text-white lg:py-32">
+    <section
+      id="demo"
+      className="relative overflow-hidden bg-coral-500 py-24 text-white lg:py-32"
+    >
       <div className="pointer-events-none absolute inset-0 bg-noise opacity-[0.12] mix-blend-overlay" />
       <div className="pointer-events-none absolute -top-40 left-1/2 h-[600px] w-[1000px] -translate-x-1/2 rounded-full bg-[radial-gradient(closest-side,rgba(255,255,255,0.18),transparent_70%)] blur-3xl" />
       <div className="pointer-events-none absolute -bottom-40 left-1/2 h-[500px] w-[1000px] -translate-x-1/2 rounded-full bg-[radial-gradient(closest-side,rgba(26,26,26,0.25),transparent_70%)] blur-3xl" />
@@ -21,15 +48,14 @@ export function FinalCTA() {
           className="mx-auto max-w-3xl text-center"
         >
           <p className="text-eyebrow font-semibold uppercase text-white/70">
-            Test it for yourself
+            {t.eyebrow}
           </p>
           <h2 className="mt-4 font-display text-display-2xl font-medium text-balance">
-            Don't take our word for it.{" "}
-            <span className="font-display-italic">Call Hellow.</span>
+            {t.headlineA}{" "}
+            <span className="font-display-italic">{t.headlineEm}</span>
           </h2>
           <p className="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-white/85 text-pretty sm:text-xl">
-            Pick up your phone right now and dial the number. Hellow will answer. Try to
-            book an appointment, ask anything. This is the real product, live.
+            {t.sub}
           </p>
 
           <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
@@ -41,14 +67,14 @@ export function FinalCTA() {
             >
               <a href={PHONE.tel}>
                 <Phone className="h-5 w-5" />
-                Call to test it live
+                {t.cta}
               </a>
             </Button>
           </div>
 
           <p className="mt-6 inline-flex items-center gap-2 text-sm text-white/85">
             <ShieldCheck className="h-4 w-4" />
-            Live, unscripted, no signup. Hang up anytime.
+            {t.fine}
           </p>
         </motion.div>
       </div>
