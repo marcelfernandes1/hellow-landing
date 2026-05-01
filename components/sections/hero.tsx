@@ -63,9 +63,9 @@ export function Hero() {
               className="mt-9 flex flex-col items-start gap-3 sm:flex-row sm:items-center"
             >
               <Button asChild size="xl">
-                <a href={PHONE.tel} aria-label={`Call ${PHONE.display} to hear Hellow live`}>
+                <a href={PHONE.tel} aria-label="Call Hellow to hear it live">
                   <Phone className="h-5 w-5" />
-                  Call {PHONE.display}
+                  Call to hear it live
                 </a>
               </Button>
               <Button asChild variant="ghost" size="xl">

@@ -76,7 +76,7 @@ export function ExitIntentPopup() {
               className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-full bg-coral-500 px-5 py-3.5 font-medium text-white shadow-coral transition-colors hover:bg-coral-600"
             >
               <Phone className="h-4 w-4" />
-              Call {PHONE.display}
+              Call to try it
             </a>
 
             <p className="mt-4 text-xs text-ink-subtle">

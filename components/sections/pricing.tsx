@@ -251,7 +251,7 @@ export function Pricing() {
                 >
                   <a href={PHONE.tel}>
                     <Phone className="h-4 w-4" />
-                    Call {PHONE.display} to test it
+                    Call to test it
                   </a>
                 </Button>
               </motion.div>

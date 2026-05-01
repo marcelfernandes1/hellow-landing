@@ -228,7 +228,7 @@ export function ROICalculator() {
               <Button asChild size="lg" className="mt-7 w-full">
                 <a href={PHONE.tel}>
                   <Phone className="h-4 w-4" />
-                  Call {PHONE.display} to test it
+                  Call to test it live
                 </a>
               </Button>
             </motion.div>

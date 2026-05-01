@@ -29,7 +29,7 @@ export function MobileStickyCTA() {
         <span className="text-sm text-white/70">Try Hellow live</span>
         <span className="inline-flex items-center gap-1.5 rounded-full bg-coral-500 px-4 py-2 text-sm font-medium text-white">
           <Phone className="h-3.5 w-3.5" />
-          {PHONE.display}
+          Call to test
         </span>
       </a>
     </div>

@@ -41,7 +41,7 @@ export function FinalCTA() {
             >
               <a href={PHONE.tel}>
                 <Phone className="h-5 w-5" />
-                Call {PHONE.display}
+                Call to test it live
               </a>
             </Button>
           </div>
